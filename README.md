@@ -1,6 +1,8 @@
 ## TODAY I LEARNED CHAT BOT
 TIL.LY (Today I Learned) is an experiment in encouraging daily presence, reflection, and documentation of the everyday. Using text analysis (with <a href="http://alchemy.com">Alchemy's</a> Natural Language Processing) it resurfaces your past memories over time with animated GIFs from <a href="http://giphy.com">Giphy<a>.
 
+[PROJECT SITE](http://zeroco.github.io/tilly/)
+
 This repo has the packaged code for a node.js web worker that will text a phone number with:
 <ol>
 <li>Prompts to add entries:</li>
