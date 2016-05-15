@@ -21,7 +21,7 @@ var payload;
 var imageURL;
 var readableDate;
 var p1 = "What do you want to remember about today?";
-var p2 = "What made you feel excited today?";
+var p2 = "What was the best part of today?";
 var p3 = "What is something new that you noticed today?";
 var p4 = "What did you learn today?";
 var promptArray = [p1,p2,p3,p4];
@@ -35,8 +35,9 @@ var request = require('request');
 var http = require('http');
 http.post = require('http-post');
 
+//cron formats http://www.nncron.ru/help/EN/working/cron-format.htm
 //11:10pm reminder to add TIL // 10 23 * * * 
-var textPrompt = new cronJob('*/40 * * * * *', function() {  
+var textPrompt = new cronJob('10 23 * * * ', function() {  
     var message = promptArray[Math.floor(Math.random() * promptArray.length)];
 
     client.sendMessage({
@@ -49,7 +50,7 @@ var textPrompt = new cronJob('*/40 * * * * *', function() {  
 
 
 // 8:10am reminder to remember past record // 10 8 * * *  / */20 * * * * * every 20
-var textMemory = new cronJob('*/20 * * * * *', function() {
+var textMemory = new cronJob('10 8 * * *', function() {
     getTILJSON();  
 },  null, true);
 
@@ -70,14 +71,10 @@ function loadEntry(tilRecord) {
     var i = tilRecord[Math.floor(Math.random() * tilRecord.length)]; //get random entry
     var date = new Date(i.dateAdded); //convert entry date into a date object
     readableDate = date.toDateString();
+    payload = i.til;
 
-    if (i.bestPartDay !== "") {
-        payload = i.til + " CONTEXT: " + i.context + " BEST PART OF THE DAY: " + i.bestPartDay;
-    } else {
-        payload = i.til + " CONTEXT: " + i.context;
-    }
     // searchGiphy(); //path for using trending gifs instead of alchemy
-    tilText = i.til + " " + i.context + " " + i.bestPartDay; //Alchemy input text
+    tilText = i.til; //Alchemy input text
     getKeywords(tilText);
 }
 

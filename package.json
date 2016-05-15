@@ -1,10 +1,10 @@
 {
-  "name": "tilly-app-dailysms-boilerplate",
-  "description": "Send daily SMS reminders using Twilio",
+  "name": "tilly-app-bot-boilerplate",
+  "description": "Schedule reminder prompts and resurface memories using Twilio",
   "author": "Song Hia <song.hia@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SongHia/tilly-app-dailysms-boilerplate"
+    "url": "https://github.com/SongHia/tilly-app-bot-boilerplate"
   },
   "dependencies": {
     "express": "4.8.x",
